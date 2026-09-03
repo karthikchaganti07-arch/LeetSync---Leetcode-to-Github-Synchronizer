@@ -1,13 +1,12 @@
 class Solution:
     def uniformArray(self, nums1: list[int]) -> bool:
-        min_odd = float('inf')
-        for x in nums1:
-            if x % 2 == 1:
-                min_odd = min(min_odd, x)
-        if min_odd == float('inf'):
+        mn = nums1[0]
+        can_odd = False
+        for i in nums1:
+            if i < mn:
+                mn = i
+            if i & 1:
+                can_odd = True
+        if mn & 1:
             return True
-        for x in nums1:
-            if x % 2 == 0 and x <= min_odd:
-                return False
-
-        return True
+        return not can_odd
