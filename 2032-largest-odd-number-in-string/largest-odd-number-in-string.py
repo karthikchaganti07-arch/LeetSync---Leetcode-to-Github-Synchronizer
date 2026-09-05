@@ -1,6 +1,3 @@
 class Solution:
     def largestOddNumber(self, num: str) -> str:
-        for i in range(len(num) - 1, -1, -1):
-            if int(num[i]) % 2 == 1:
-                return num[:i + 1]
-        return ""
+        return num[:max([num.rfind(d) for d in '13579'], default=-1) + 1]
