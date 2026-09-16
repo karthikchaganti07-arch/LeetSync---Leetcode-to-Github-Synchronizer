@@ -13,8 +13,6 @@ class Solution:
             return ""
         n=len(num)
         a=len(alpha)
-        if n-a>2 or a-n>2:
-            return ""
         if abs(n - a) > 1:
             return ""
         res = []
