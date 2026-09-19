@@ -1,7 +1,10 @@
 class Solution:
     def dayOfYear(self, date: str) -> int:
-        year,month,days=map(int,date.split("-"))
-        is_leap=(year % 400 == 0) or (year % 4 == 0 and year % 100 != 0)
-        feb_days=29 if is_leap else 28
-        month_days=[31, feb_days, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        return sum(month_days[:month-1])+days
+        year = int(date[:4])
+        month = int(date[5:7])
+        day = int(date[8:])
+        days = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365]
+        if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+            if month > 2:
+                return days[month - 1] + day + 1
+        return days[month - 1] + day
