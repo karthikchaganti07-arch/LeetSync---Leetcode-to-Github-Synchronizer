@@ -6,5 +6,4 @@ class Solution:
             return "Orange"
         if timer>30 and timer<=90:
             return "Red"
-        else:
-            return "Invalid"
+        return "Invalid"
