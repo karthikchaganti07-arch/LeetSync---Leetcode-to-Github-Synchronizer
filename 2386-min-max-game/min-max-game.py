@@ -8,4 +8,4 @@ class Solution:
                 else:
                     n.append(max(nums[i], nums[i+1]))
             nums = n
-        return nums[-1]
+        return nums[0]
